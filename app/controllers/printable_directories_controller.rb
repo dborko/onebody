@@ -17,6 +17,12 @@ class PrintableDirectoriesController < ApplicationController
   end
   
   def show
+    @families = Family.all(
+      :conditions => ["families.deleted = ? and (select count(*) from people where family_id = families.id and visible_on_printed_directory = ?) > 0", false, true],
+      :order => 'families.last_name, families.name',
+      :include => 'people',
+      :select => 'families.name, families.last_name, families.home_phone, families.address1, families.address2, families.city, families.state, families.zip, people.first_name, people.last_name'
+    )
   end
   
   def show_old
