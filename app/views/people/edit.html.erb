@@ -26,9 +26,13 @@
   <li><%= link_to 'View Profile', person_path(@person) %></li>
   <li><%= link_to 'Change Email/Password', edit_person_account_path(@person) %></li>
   <li><%= link_to 'Privacy Settings', edit_person_privacy_path(@person, :anchor => "p#{@person.id}") %></li>
-  <% if @person.can_sync_remotely? %>
+ 
+   <% if Setting.get(:features, :ots) %>
+   <% if @person.can_sync_remotely? %>
      <li><%= link_to 'Remote Accounts', person_remote_accounts_path(@person) %></li>
-  <% end %>
+   <% end %>
+   <% end %>
+
   <% if @logged_in.admin?(:edit_profiles) and !me? %>
     <li><%= link_to (@person.account_frozen? ? 'Unfreeze' : 'Freeze'), person_path(@person, :freeze => 'toggle'), :method => 'put', :confirm => 'Are you sure?' %></li>
   <% end %>
@@ -60,13 +64,28 @@
   </td></tr></table>
 </div>
 
-<h2 class="tab" id="family-picture">Family Pic</h2>
+<% if Setting.get(:features, :ots) %>
+    <h2 class="tab" id="family-picture">Family Pic</h2>
+ <% else %>	
+    <h2 class="tab" id="family-picture">Boat Pic</h2>
+<% end %>
+
+
 <div class="section">
+ 
+<% if Setting.get(:features, :ots) %>
   <p>
     Upload a <strong>family picture</strong>.
     Please only upload a <span class="very-strong">real photo</span> &mdash;
     no graphics, clip-art, or fakes please.
   </p>
+ <% else %>
+  <p>
+    Upload a <strong>picture of your boat</strong>.
+    Please only upload a <span class="very-strong">real photo</span> &mdash;
+    no clipart, or fakes please.
+  </p>
+<% end %>
   <table><tr><td>
   <%= render :partial => 'families/photo' %>
   </td><td>
@@ -80,10 +99,14 @@
     <%= form.error_messages %>
     <%= hidden_field_tag :anchor, 'about' %>
     <div>
+
+<% if Setting.get(:features, :testimony) %>
       <label for="person_testimony">Testimony:</label>
       Share your personal testimony &mdash; how you came to know
       Jesus Christ and how he has changed your life.<br/>
       <%= form.text_area :testimony, :rows => 15, :style => 'width:95%;' %><br/>
+<% end %>
+
       <label for="person_about">About Me:</label>
       Tell us about yourself. What's your personality like?
       What would your best friend say about you?<br/>
@@ -164,6 +187,7 @@
     <p><%= submit_tag 'Save Changes' %></p>
   <% end %>
 </div>
+
 
 <% if Setting.get(:features, :service) and @logged_in.admin? %>
   <h2 class="tab" id="service">Service</h2>

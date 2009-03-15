@@ -1,10 +1,13 @@
 <% content_for :subnav do %>
-  <% if @logged_in.admin?(:edit_profiles) %>
+
+<% if @logged_in.admin? %> 
     <div style="float:right;">
       <%= link_to 'Edit Family', @person.family %>
       <%= link_to 'New Family', new_family_path %>
     </div>
   <% end %>
+
+
   <% if @logged_in.can_edit? @person %>
     <%= render :partial => 'edit_person' %>
   <% end %>
@@ -21,7 +24,7 @@
 
 <% content_for :sidebar do %>
   <%= render :partial => 'photo' %>
-  <%= render :partial => 'family' %>
+  <%= render :partial => 'families/photo' %>
   <%= render :partial => 'hidden_children' %>
   <% if Setting.get(:features, :friends) %>
     <%= render :partial => 'friends' %>
@@ -49,11 +52,16 @@
   </p>
 <% end %>
 
+<% if Setting.get(:features, :ots) %>
 <%= render :partial => 'map' %>
+<% end %>
+
 
 <% if me? %>
   <div id="recently-container"><div id="recently_content"></div></div>
 <% end %>
+
+
 
 <h1>
   <%=h @person.name %>
@@ -62,7 +70,9 @@
   <% end %>
 </h1>
 
+<% if Setting.get(:features, :ots) %>
 <%= render :partial => 'person_type' %>
+<% end %>
 
 <%= render :partial => 'pending_updates' %>
 
@@ -85,12 +95,14 @@
   <% end %>
 </div>
 
+<% if Setting.get(:features, :Testimony) %>
 <% if @person.testimony.to_s.any? %>
   <h2 class="profile" id="testimony">Testimony</h2>
   <div id="testimony_content">
     <%= preserve_breaks @person.testimony %>
     <p><%= link_to 'Read more testimonies...', search_path(:testimony => true) %></p>
   </div>
+<% end %>
 <% end %>
 
 <% if Setting.get(:features, :blog) %>
@@ -112,6 +124,7 @@
   </div>
 <% end %>
 
+
 <% if me? %>
   <script type="text/javascript">
     // load activity box (recently)
@@ -123,6 +136,9 @@
   </script>
 <% end %>
 
+
+<% if Setting.get(:features, :ots) %>
 <% if @show_map %>
   <%= render :partial => 'map_scripts' %>
+<% end %>
 <% end %>

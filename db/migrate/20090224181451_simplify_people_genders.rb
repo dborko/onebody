@@ -1,7 +1,7 @@
 class SimplifyPeopleGenders < ActiveRecord::Migration
   def self.up
     change_table :people do |t|
-      t.boolean :child
+      t.boolean :child, :default => false
     end
     Person.reset_column_information
     Site.each do

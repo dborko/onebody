@@ -32,27 +32,70 @@
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-morgan:
+dock1:
   site_id: 1
   id: 1
-  name: Morgan Group
+  name: Sail 30 feet and up
   creator_id: 1
-  category: Small Groups
-  hidden: false
-  private: false
-college:
-  site_id: 1
-  id: 2
-  name: College Group
-  creator_id: 2
-  category: Small Groups
+  category: Docks
   hidden: false
   private: false
   approved: true
-  address: college
-publications:
+
+dock2:
+  site_id: 1
+  id: 2
+  name: Sail 20 to 30 feet
+  creator_id: 1
+  category: Docks
+  hidden: false
+  private: false
+  approved: true
+
+dock3:
   site_id: 1
   id: 3
+  name: Day Sailers
+  creator_id: 1
+  category: Docks
+  hidden: false
+  private: false
+  approved: true 
+
+dock4:
+  site_id: 1
+  id: 4
+  name: Power 30 feet and up
+  creator_id: 1
+  category: Docks
+  hidden: false
+  private: false
+  approved: true
+
+dock5:
+  site_id: 1
+  id: 5
+  name: Power 20 to 30 feet
+  creator_id: 1
+  category: Docks
+  hidden: false
+  private: false
+  approved: true
+ 
+dock6:
+  site_id: 1
+  id: 6
+  name: Power under 20
+  creator_id: 1
+  category: Docks
+  hidden: false
+  private: false
+  approved: true
+
+
+publications:
+  site_id: 1
+  id: 7
   name: Publications
   description: People who wish to be notified when new publications become available on the website.
   category: Subscription
@@ -60,23 +103,5 @@ publications:
   members_send: false
   hidden: true
   approved: true
-morgan_in_site_1:
-  site_id: 2
-  id: 4
-  name: Morgan Group
-  creator_id: 1
-  category: Small Groups
-  hidden: false
-  private: false
-  address: morgan
-  approved: true
-morgan_in_site_2:
-  site_id: 3
-  id: 5
-  name: Morgan Group
-  creator_id: 1
-  category: Small Groups
-  hidden: false
-  private: false
-  address: morgan
-  approved: true
+
+

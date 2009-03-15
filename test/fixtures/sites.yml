@@ -22,13 +22,6 @@
 
 default:
   id: 1
-  name: Default
-  host: example.com
-site1:
-  id: 2
-  name: Site 1
-  host: site1
-site2:
-  id: 3
-  name: Site 2
-  host: site2
+  name: Imarina dot Net
+  host: imarina.net
+

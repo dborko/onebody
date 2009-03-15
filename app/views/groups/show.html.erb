@@ -141,6 +141,7 @@
   </div>
 <% end %>
 
+<% if Setting.get(:features, :prayers) %>
 <% if @group.prayer? %>
   <h2 class="tab" id="prayerrequests">Prayer Requests</h2>
   <div class="section">
@@ -167,6 +168,7 @@
     <% end %>
   </div>
 <% end %>
+<% end %>
 
 <% if @group.pictures? %>
   <h2 class="tab" id="pictures">Pictures</h2>
@@ -182,6 +184,7 @@
   </div>
 <% end %>
 
+<% if Setting.get(:features, :ots) %>
 <% if @group.attendance? and @group.admin?(@logged_in) %>
   <h2 class="tab" id="attendance">Attendance</h2>
   <div class="section">
@@ -199,6 +202,8 @@
     <div id="attendance_records"></div>
   </div>
 <% end %>
+<% end %>
+
 
 <% unless @group.blog? or @group.email? or @group.prayer? %>
   <p><em>This group does not offer any features and is for informational purposes only.</em></p>

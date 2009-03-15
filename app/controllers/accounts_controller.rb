@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-    if params[:email]
+   if params[:email]
       render :action => 'new_by_email'
     elsif params[:mobile]
       render :action => 'new_by_mobile'
@@ -25,6 +25,8 @@ class AccountsController < ApplicationController
       @person = Person.new
     end
   end
+
+
   
   def create
     if params[:person] and Setting.get(:features, :sign_up) and params[:phone].blank? # phone is to catch bots (hidden field)

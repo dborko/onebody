@@ -131,6 +131,9 @@ class Notifier < ActionMailer::Base
     return if email.from.to_s =~ /no\-?reply|postmaster|mailer\-daemon/i
     return if email.subject =~ /^undelivered mail returned to sender|^returned mail/i
     return unless get_site(email)
+
+     
+    return unless get_site(email)
     
     unless @person = get_from_person(email)
       Notifier.deliver_simple_message(

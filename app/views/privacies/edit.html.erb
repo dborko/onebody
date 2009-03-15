@@ -19,6 +19,10 @@
   </p>
 <% end %>
 
+
+<% if Setting.get(:features, :ots) %>
+
+
 <p>
   Modify the privacy settings for you and your family below. To understand how we use the personal information
   of you and your family, please read our <%= link_to 'Privacy Policy', help_path('privacy_policy') %>.
@@ -120,6 +124,9 @@
 
 </div>
 
+<% end %>
+
+
 <div id="privacy-people">
 
 <% @family.people.each do |person| %>
@@ -141,9 +148,9 @@
           <%=h Setting.get(:contact, :church_office_phone) %> immediately.
         </p>
       <% end %>
-    
+<% if Setting.get(:features, :ots) %>    
       <p>You may override the family settings for <%=h person.name %> by making changes below.</p>
-      
+<% end %>     
       <p>
         <%= form.check_box 'visible', :class => 'checkbox person-visible-checkbox', :id => "person-visible#{person.id}", :onclick => "check_visibility();" %>
         <strong>visible on site</strong><br/>

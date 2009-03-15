@@ -15,7 +15,8 @@
     We send you a text message, you type the code it contains, and you're done.
     <span style="color:#f00;">Text messaging fees may apply.</span>
   </li>
-  <li>
+<% if Setting.get(:features, :ots) %> 
+ <li>
     <%= link_to 'Verify by birthday.', new_account_path(:birthday => true) %><br/>
     These submissions are reviewed by a real person and may take a few
     days to be approved.
@@ -23,4 +24,5 @@
   <li>
     Call <%= Setting.get(:contact, :church_office_phone) %> during business hours.
   </li>
+<% end %>
 </ul>
