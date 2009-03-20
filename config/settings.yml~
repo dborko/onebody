@@ -37,7 +37,7 @@ Contact:
 Name: 
   Church: 
     format: string
-    value: Imarina dot Net, LLC
+    value: Imarina dot Net
     description: The name of the church
   Site: 
     format: string
@@ -47,6 +47,10 @@ Name:
     format: string
     value: a social networking site for sailors/boaters
     description: Slogan displayed at top of every page.
+   Pictab:
+    format: string
+    value: Boat Pic
+    description: ID for family picture tab. Remember to adjust family png image as apporpriate.
 Features: 
   ots:
     format: boolean
@@ -295,4 +299,7 @@ Privacy:
     format: boolean
     value: true
     description: If enabled, new users will have their anniversary shared with other site members.
-
+  Allow Picture Comments:
+    format: boolean
+    value: true
+    description: If enabled, users will be allowed to post comments on pictures.

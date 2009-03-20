@@ -83,7 +83,7 @@
   <p>
     Upload a <strong>picture of your boat</strong>.
     Please only upload a <span class="very-strong">real photo</span> &mdash;
-    no graphics, clip-art, or fakes please.
+    no clipart, or fakes please.
   </p>
 <% end %>
   <table><tr><td>

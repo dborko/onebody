@@ -15,10 +15,14 @@
   <p>This site does not allow people to sign up. Instead, you must either verify your
   already-existing account information or contact <%= Setting.get(:contact, :church_office_phone) %>.</p>
 <% end %>
+
+
+<% if Setting.get(:features, :ots) %>
 <h2>Verify Account</h2>
 
-<%= render :partial => 'how_to_verify' %>
 
+<%= render :partial => 'how_to_verify' %>
+<% end %>
 <style type="text/css" media="screen">
   #dummy_phone { display: none; }
 </style>

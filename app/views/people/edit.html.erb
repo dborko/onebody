@@ -64,12 +64,9 @@
   </td></tr></table>
 </div>
 
-<% if Setting.get(:features, :ots) %>
-    <h2 class="tab" id="family-picture">Family Pic</h2>
- <% else %>	
-    <h2 class="tab" id="family-picture">Boat Pic</h2>
-<% end %>
-
+<% pictab = Setting.get(:name, :pictab) %>
+    <h2 class="tab" id="family-picture"><%= pictab %> </h2>
+ 
 
 <div class="section">
  

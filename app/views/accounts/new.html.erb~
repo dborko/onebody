@@ -1,4 +1,3 @@
-<% if Setting.get(:features, :ots) %>
 <% if Setting.get(:features, :sign_up) %>
   <h2>Create Account</h2>
   <% form_for Person.new, :url => account_path, :method => 'post' do |form| %>
@@ -18,24 +17,10 @@
 <% end %>
 <h2>Verify Account</h2>
 
+<% if Setting.get(:features, :ots) %>
 <%= render :partial => 'how_to_verify' %>
-
+<% end %>
 <style type="text/css" media="screen">
   #dummy_phone { display: none; }
 </style>
 
-<% else %>
-
-<h2>Create Account</h2>
-  <% form_for Person.new, :url => account_path, :method => 'post' do |form| %>
-    <%= form.error_messages %>
-    <p>
-      <%= form.label :email %>        <%= form.text_field :email %><br/>
-      <%= form.label :first_name %>   <%= form.text_field :first_name %><br/>
-      <%= form.label :last_name %>    <%= form.text_field :last_name %><br/>
-      <%= form.label :gender %>       <%= form.select :gender, [''] + %w(Male Female) %><br/>
-      <%= form.label :birdate %>      <%= form.date_field :birthday %> FIELD REQUIRED  (MM/DD/YYYY)<br/><br/>
-      <%= form.submit 'Create Account' %>
-    </p>
-  <% end %>
-<% end %>
