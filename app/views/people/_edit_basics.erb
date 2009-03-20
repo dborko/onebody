@@ -5,6 +5,7 @@
   </div>
 <% end %>
 
+<% if Setting.get(:features, :ots) %>
 <% if @logged_in.admin?(:edit_profiles) %>
   <p>
     If your system is set up to synchronize its data with an external source
@@ -24,6 +25,8 @@
     and hide it.
   </p>
 <% end %>
+<% end %>
+
 
 <%= render :partial => 'pending_updates' %>
 
@@ -82,7 +85,7 @@
     <%= form.label :child %>      <%= form.check_box :child %><br/>  
   <% end %>
   <%= form.label :email %>        <%= form.text_field :email %><br/>
-  <%= form.label :mobile_phone %> <%= form.phone_field :mobile_phone %><br/>
+  <%= form.label :mobile_phone  %> <%= form.phone_field :mobile_phone %>- If you forget your password - you can verify by mobile text message - if you provide this number<br/>
   <%= form.label :work_phone %>   <%= form.phone_field :work_phone %><br/>
   <%= form.label :fax %>          <%= form.phone_field :fax %><br/>
   <%= form.label :birthday %>     <%= form.date_field :birthday %><br/>
