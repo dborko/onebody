@@ -153,11 +153,15 @@
 
 <h2 class="tab" id="business">Business</h2>
 <div class="section">
+  
+
   <p>
     If you wish to be listed in the <%= link_to 'Business Directory', search_path(:business => true) %>,
     Enter your business name, description, and other details below.
   </p>
-
+  <p>
+    Registration of a business will be free for early joiners of this web site.  However, we reserve the right to convert this to a premium level of service at some future date.
+  </p>
   <% form_for @person do |form| %>
     <%= hidden_field_tag :anchor, 'business' %>
     <div>
