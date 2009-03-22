@@ -2,12 +2,12 @@
 Contact: 
   Tech Support Email: 
     format: string
-    value: tech@imarina.net
+    value: admin@imarina.org
     description: Email to contact for technical help with the site.
     global: true
   Church Email: 
     format: string
-    value: info@imarina.net
+    value: commodore@imarina.net
     description: Visible in some places on site
   Church Office Phone: 
     format: string
@@ -15,16 +15,16 @@ Contact:
     description: Phone number for the church office
   Bug Notification Email: 
     format: string
-    value: tech@imarina.net
+    value: admin@imarina.org
     description: Email address to send bug reports to
     global: true
   Birthday Verification Email: 
     format: string
-    value: admin@imarina.net
+    value: admin@imarina.org
     description: Email sent when someone requests verification via birthday (shouldn't be blank)
   Send Email Changes To: 
     format: string
-    value: admin@imarina.net
+    value: admin@imarina.org
     description: Email sent when someone changes their email address (can be blank for no email)
   Church Address: 
     format: string
@@ -52,6 +52,10 @@ Name:
     value: Boat Pic
     description: ID for family picture tab. Remember to adjust public/images/family.jpg image as apporpriate.
 Features: 
+  rss:
+    format: boolean
+    value: true
+    description: Use to trigger RSS Feeds options.
   ots:
     format: boolean
     value: false
@@ -167,7 +171,7 @@ Services:
     global: true
   Analytics: 
     format: string
-    value: 
+    value:  
     description: If you use Google Analytics or some other JavaScript-based stats service, put the code here. It will be inserted at the bottom of every page.
     global: true
 Access: 
@@ -190,7 +194,7 @@ URL:
     hidden: true
   News: 
     format: string
-    value: 
+    value: http://imarina.org
     description: URL for church news (people will be pointed here for news)
   News RSS: 
     format: string

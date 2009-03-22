@@ -54,8 +54,9 @@
 	    <li><%= link_to 'Profile', people_path, :class => (params[:controller] == 'people' and @person == @logged_in ? 'active' : nil) %></li>
 	    <li><%= link_to 'Directory', new_search_path, :class => (%w(searches printable_directories).include?(params[:controller]) ? 'active' : nil) %></li>
 	    <% if Setting.get(:features, :groups) and (Site.current.max_groups.nil? or Site.current.max_groups > 0) %><li><%= link_to 'Groups', groups_path, :class => (params[:controller] == 'groups' ? 'active' : nil) %></li><% end %>
-
+           <% if Setting.get(:features, :rss) %>
            <li><%= link_to 'RSS Feeds', feeds_path, :class => (params[:controller] == 'feeds' ? 'active' : nil) %></li>
+           <% end %>
 		<li><%= link_to 'More', shares_path, :class => (['shares', 'events', 'pictures', 'verses', 'recipes'].include?(params[:controller]) ? 'active' : nil) %></li>	
 		</ul>
 		
