@@ -73,7 +73,12 @@ unless defined?(DISABLE_ROUTES)
     map.resources :pages, :as => 'pages/admin' do |pages|
       pages.resources :attachments
     end
-  
+ 
+
+    map.resources :items
+    map.resources :feeds, :has_many => :items
+
+
     map.with_options :controller => 'pages' do |pages|
       pages.page_for_public 'pages/*path', :action => 'show_for_public', :conditions => {:method => :get}
     end

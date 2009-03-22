@@ -1,0 +1,36 @@
+
+
+
+
+<h1> RSS Feed Data </h1>
+
+<table>
+  <tr>
+  	<th> Feed </th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Published at</th>
+    
+  </tr>
+
+<% for item in @items  %>
+
+
+  <tr>
+  	<td><%= h item.feed.name %>---</td>
+	<td><strong><%=link_to item.title, item  %></strong></td>
+    <td><%=strip_tags truncate(CGI::unescapeHTML(item.body), 75) %></td>
+    <td><%= item.published_at.to_time %></td>
+    <% if @logged_in.admin? %>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Back", :controller => "feeds", :action => "index" %>
+
+

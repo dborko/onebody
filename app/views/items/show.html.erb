@@ -1,0 +1,31 @@
+<p>
+  <b>Title:</b>
+  <%=h @item.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= CGI::unescapeHTML(@item.body)%>
+  
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @item.author %>
+</p>
+
+<p>
+  <b>Published at:</b>
+  <%=h @item.published_at %>
+</p>
+
+<p>
+  <b>Feed:</b>
+  <%=h @item.feed.name %>
+</p>
+
+<p>
+<%= h @item.feed.url %>
+
+
+<%= link_to 'Back', :controller => "items", :action => "index", :id => @item.feed_id  %>
