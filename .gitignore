@@ -1,3 +1,5 @@
+
+*~
 db/*.db
 db/schema.rb
 db/*.sql
