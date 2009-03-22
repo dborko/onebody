@@ -92,10 +92,29 @@ dock6:
   private: false
   approved: true
 
+irwin:
+  site_id: 1
+  id: 7
+  name: Irwin Owners Group
+  creator_id: 1
+  category: Boats
+  hidden: false
+  private: false
+  approved: true
+
+titusville:
+  site_id: 1
+  id: 8
+  name: Titusville Marina
+  creator_id: 1
+  category: Clubs
+  hidden: false
+  private: false
+  approved: true
 
 publications:
   site_id: 1
-  id: 7
+  id: 9
   name: Publications
   description: People who wish to be notified when new publications become available on the website.
   category: Subscription

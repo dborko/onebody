@@ -2,13 +2,13 @@ class ItemsController < ApplicationController
 
 
 
-
   # GET /items
   # GET /items.xml
 
   def index
     
    @items = Item.find(:all, :conditions=>["feed_id = ?", params[:id]])
+   @items = @items.paginate(:per_page => 10, :order => 'id', :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

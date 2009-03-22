@@ -13,6 +13,8 @@
     
   </tr>
 
+<h3><%= will_paginate @items %></h3>
+
 <% for item in @items  %>
 
 
@@ -28,9 +30,9 @@
 
 <% end %>
 </table>
-
+<h3><%= will_paginate @items %></h3>
 <br />
 
-<%= link_to "Back", :controller => "feeds", :action => "index" %>
+<h3><%= link_to "Back", :controller => "feeds", :action => "index" %></h3>
 
 
