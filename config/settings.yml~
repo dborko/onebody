@@ -47,7 +47,7 @@ Name:
     format: string
     value: a social networking site for sailors/boaters
     description: Slogan displayed at top of every page.
-   Pictab:
+  Pictab:
     format: string
     value: Boat Pic
     description: ID for family picture tab. Remember to adjust family png image as apporpriate.

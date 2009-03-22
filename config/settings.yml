@@ -50,7 +50,7 @@ Name:
   Pictab:
     format: string
     value: Boat Pic
-    description: ID for family picture tab. Remember to adjust family png image as apporpriate.
+    description: ID for family picture tab. Remember to adjust public/images/family.jpg image as apporpriate.
 Features: 
   ots:
     format: boolean
