@@ -23,11 +23,11 @@
   <%= hidden_field_tag :from, params[:from] %>
   <%= hidden_field_tag :encrypted_password %>
   <div style="width:150px;float:right;margin:10px;text-align:center;">
-    <%= link_to image_tag('help.gif', :alt => 'Help Signing In', :class => 'no-border'), help_path %><br/>
+    <%= link_to image_tag('help.gif', :alt => 'Trouble Signing In ?', :class => 'no-border'), help_path %><br/>
     <%= link_to 'I need help.', help_path %>
   </div>
   
-  <p><%= link_to 'Sign Up', new_account_path %> for an account, or sign in:</p>
+  <p><h3>If you are new --> <%= link_to 'Sign Up', new_account_path %> for an account,<br /> or sign in below:</h3></p>
   
   <table>
     <tr>

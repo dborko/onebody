@@ -7,8 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     
-   @items = Item.find(:all, :conditions=>["feed_id = ?", params[:id]])
-   @items = @items.paginate(:per_page => 10, :order => 'id', :page => params[:page])
+   @items = Item.find(:all, :conditions=>["feed_id = ?", params[:id]], :order => "items.published_at DESC").paginate(:per_page => 15, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
