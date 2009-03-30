@@ -20,10 +20,10 @@
         <% if @logged_in.admin? %>
           <%= link_to 'admin', admin_path, :style => 'padding-left:5px;padding-right:5px;' %>
         <% end %>
-        <%= link_to 'sign out', session_path, :method => 'delete', :style => 'padding-left:5px;padding-right:5px;' %>
+        <h3><em><%= link_to 'sign out', session_path, :method => 'delete', :style => 'padding-left:5px;padding-right:5px;' %></em></h3>
         <% else %>
 		<em>Not Logged in:</em>  
-        <%= link_to 'sign in', new_session_path %>
+        <h4><em><%= link_to 'sign in', new_session_path %></em></h4>
 	    <% end %>
 		</div>
 		
