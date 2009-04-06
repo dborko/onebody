@@ -14,7 +14,7 @@
 	  <%= h feed.description%>
      <% if @logged_in.admin? %>
 	 <%= link_to 'Edit',@feed, :method => :edit %>
-     <%= link_to 'trash.gif',@feed, :confirm => 'Are you sure?', :method => :delete %>
+     <%= link_to 'Delete',@feed, :confirm => 'Are you sure?', :method => :delete %>
      <% end %>
     </p>
   <% end %>

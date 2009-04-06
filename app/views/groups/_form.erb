@@ -38,8 +38,11 @@
   <p>
     <%= form.check_box :blog,       :class => 'checkbox' %> <%= form.label :blog,       'Enable Blog',                :class => 'inline' %><br/>
     <%= form.check_box :email,      :class => 'checkbox' %> <%= form.label :email,      'Enable Email',               :class => 'inline' %><br/>
-    <%= form.check_box :prayer,     :class => 'checkbox' %> <%= form.label :prayer,     'Enable Prayer Requests',     :class => 'inline' %><br/>
-    <%= form.check_box :attendance, :class => 'checkbox' %> <%= form.label :attendance, 'Enable Attendance Tracking', :class => 'inline' %><br/>
+<% if Setting.get(:features, :ots) %>   
+ <%= form.check_box :prayer,     :class => 'checkbox' %> <%= form.label :prayer,     'Enable Prayer Requests',     :class => 'inline' %><br/>
+    <%= form.check_box :attendance, :class => 'checkbox' %> <%= form.label :attendance, 'Enable Attendance Tracking', :class => 'inline' %>
+<% end%>
+<br/>
     <%= form.label :address, 'Email Address:', :class => 'inline' %>
     <%= form.text_field :address, :style => 'width:150px;', :onkeyup => "this.value = remove_symbols(this.value)" %>@<%=h Site.current.host %>
     <%= form.label :gcal_private_link, 'Google Calendar Private Link' %>
