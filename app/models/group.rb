@@ -159,8 +159,9 @@ class Group < ActiveRecord::Base
   def gcal_url
     if gcal_private_link.to_s.any?
       account = gcal_account
-      if token = gcal_token
-        "http://www.google.com/calendar/embed?pvttk=#{token}&amp;showTitle=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=#{account}&amp;color=%23A32929&amp;ctz=UTC#{Time.zone.utc_offset}"
+      if gcal_token        "http://www.google.com/calendar/embed?pvttk=#{gcal_token}&amp;showTitle=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=#{account}&amp;color=%23A32929&amp;ctz=UTC#{Time.zone.utc_offset}"
+	  else 
+"http://www.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=#{account}&amp;color=%23A32929&amp;ctz=UTC#{Time.zone.utc_offset}"
       end
     end
   end
@@ -176,7 +177,7 @@ class Group < ActiveRecord::Base
   end
   
   def gcal_token
-  	gcal_private_link.to_s.match(/private\-([a-z0-9]+)/)[1]
+    gcal_private_link.to_s.match(/private\-([a-z0-9]+)/)[1]
   end 
   
   before_destroy :remove_parent_of_links
